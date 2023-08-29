@@ -1,9 +1,16 @@
 #include "normalstudent.h"
+#include<iostream>
+
+using namespace std;
 
 NormalStudent::NormalStudent(const string& fullName, const string& doB, const string& sex,
     const string& phoneNumber, const string& universityName, const string& gradeLevel,
     int englishScore, int entryTestScore)
     : Student(fullName, doB, sex, phoneNumber, universityName, gradeLevel), englishScore(englishScore), entryTestScore(entryTestScore) {
+}
+
+int NormalStudent::getEnglishScore() {
+    return englishScore;
 }
 
 void NormalStudent::ShowMyInfo() const {

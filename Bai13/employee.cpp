@@ -3,6 +3,8 @@
 
 using namespace std;
 
+int Employee::Employee_count = 0;
+
 Certificate::Certificate(int id, const string &name, const string &rank, const string &date)
     : CertificatedID(id), CertificateName(name), CertificateRank(rank), CertificateDate(date) {}
 
@@ -24,18 +26,6 @@ Employee::~Employee() {}
 
 int Employee::GetEmployeeCount() {
     return Employee_count;
-}
-
-void Employee::AddCertificate(int id, const string &name, const string &rank, const string &date) {
-    Certificate certificate(id, name, rank, date);
-    certificates.push_back(certificate);
-}
-
-void Employee::ShowCertificates() {
-    for (const auto &certificate : certificates) {
-        certificate.ShowCertificateInfo();
-        cout << "---------------------------" << endl;
-    }
 }
 
 int Employee::getID() {
@@ -61,3 +51,34 @@ string Employee::getEmail() {
 int Employee::getEmployeeType() {
     return Employee_type;
 }
+
+void Employee::setEmployeeType(int type) {
+    Employee_type = type;
+}
+
+void Employee::setFullName(const string& name) {
+    FullName = name;
+}
+
+void Employee::setBirthDay(const string& birth) {
+    BirthDay = birth;
+}
+void Employee::setPhone(const string& phone) {
+    Phone = phone;
+}
+void Employee::setEmail(const string& email) {
+    Email = email;
+}
+
+void Employee::AddCertificate(int id, const string &name, const string &rank, const string &date) {
+    Certificate certificate(id, name, rank, date);
+    certificates.push_back(certificate);
+}
+
+void Employee::ShowCertificates() {
+    for (const auto &certificate : certificates) {
+        certificate.ShowCertificateInfo();
+        cout << "---------------------------" << endl;
+    }
+}
+

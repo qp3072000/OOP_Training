@@ -1,14 +1,19 @@
-#ifndef MANAGEMENT_H
-#define MANAGEMENT_H
-
-#include <vector>
+#pragma once
 #include "student.h"
+#include<vector>
 
-class Management {
+class StudentManager {
+private:
+    vector<Student*> students;
+
 public:
-    void AddStudent(std::vector<Student*>& students);
-    void ShowHiredStudents(const std::vector<Student*>& hiredStudents);
-    void HireStudents(std::vector<Student*>& students, std::vector<Student*>& hiredStudents);
-};
+    StudentManager();
+    ~StudentManager();
 
-#endif
+    Student* AddStudent();
+    void EditStudent(const string& fullName, Student* newStudent);
+    void DeleteStudent(const string& fullName);
+    void ShowAllStudents() const;
+    void SelectQualifiedStudents(int requiredCount) const;
+    void Run();
+};

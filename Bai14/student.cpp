@@ -6,6 +6,8 @@ Student::Student(const string& fullName, const string& doB, const string& sex,
       gradeLevel(gradeLevel) {
 }
 
+Student::~Student() {}
+
 const string& Student::GetFullName() const {
     return fullName;
 }

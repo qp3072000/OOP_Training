@@ -1,15 +1,25 @@
-#ifndef EMPLOYEE_MANAGER_H
-#define EMPLOYEE_MANAGER_H
+#pragma once
 
-#include <iostream>
-#include <vector>
-#include "employee.h" 
+#include"employee.h"
+#include<vector>
+#include<memory>
+
+using namespace std;
 
 class EmployeeManager {
+private:
+    vector<unique_ptr<Employee>>& employees;
 public:
-    static void AddEmployee(std::vector<Employee*>& employees);
-    static void EditEmployee(std::vector<Employee*>& employees, int id);
-    static void DeleteEmployee(std::vector<Employee*>& employees, int id);
-};
+    EmployeeManager(vector<unique_ptr<Employee>>& employees);
 
-#endif
+    void AddEmployee();
+    void EditEmployee();
+    void DeleteEmployee();
+    void FindInterns();
+    void FindExperiences();
+    void FindFreshers();
+    void ShowTotalEmployeeCount() const;
+
+    int ShowMenu() const;
+    void Run();
+};

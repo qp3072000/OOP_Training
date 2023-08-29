@@ -1,9 +1,16 @@
 #include "goodstudent.h"
+#include<iostream>
+
+using namespace std;
 
 GoodStudent::GoodStudent(const string& fullName, const string& doB, const string& sex,
     const string& phoneNumber, const string& universityName, const string& gradeLevel,
     double gpa, const string& bestRewardName)
     : Student(fullName, doB, sex, phoneNumber, universityName, gradeLevel), gpa(gpa), bestRewardName(bestRewardName) {
+}
+
+double GoodStudent::getGPA() {
+    return gpa;
 }
 
 void GoodStudent::ShowMyInfo() const {

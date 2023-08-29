@@ -1,4 +1,4 @@
-#include "Department.h"
+#include "department.h"
 #include <algorithm>
 #include <map>
 
@@ -15,7 +15,6 @@ Department::Department(const Department& other) {
     partTimeStudents = other.partTimeStudents;
 }
 
-// Add a student to the department
 void Department::AddStudent(Student* student) {
     students.push_back(student);
 }
@@ -24,7 +23,6 @@ void Department::AddPartTimeStudent(PartTimeStudent* student) {
     partTimeStudents.push_back(student);
 }
 
-// Get the number of regular students in the department
 int Department::GetRegularStudentCount() {
     int count = 0;
     for (Student* student : students) {
@@ -35,7 +33,6 @@ int Department::GetRegularStudentCount() {
     return count;
 }
 
-// Find the student with the highest entrance exam score in the department
 Student* Department::FindStudentWithHighestEntranceScore() {
     if (students.empty()) {
         return nullptr;
@@ -50,7 +47,6 @@ Student* Department::FindStudentWithHighestEntranceScore() {
     return highestScoreStudent;
 }
 
-// Find PartTimeStudents by training location
 vector<PartTimeStudent*> Department::FindPartTimeStudentsByLocation(const string& location) {
     vector<PartTimeStudent*> matchingStudents;
     for (PartTimeStudent* student : partTimeStudents) {
@@ -61,7 +57,6 @@ vector<PartTimeStudent*> Department::FindPartTimeStudentsByLocation(const string
     return matchingStudents;
 }
 
-// Find students with a minimum average score in the last semester
 vector<Student*> Department::FindStudentsWithMinAverageScore(float minScore) {
     vector<Student*> matchingStudents;
     for (Student* student : students) {
@@ -77,7 +72,6 @@ vector<Student*> Department::FindStudentsWithMinAverageScore(float minScore) {
     return matchingStudents;
 }
 
-// Find students with the highest average score across all semesters
 Student* Department::FindStudentWithHighestAverageScore() {
     if (students.empty()) {
         return nullptr;
@@ -107,7 +101,6 @@ Student* Department::FindStudentWithHighestAverageScore() {
     return highestAverageScoreStudent;
 }
 
-// Sort students by type (regular/part-time) and admission year
 void Department::SortStudents() {
     // Sort regular students
     sort(students.begin(), students.end(), [](Student* a, Student* b) {
@@ -120,7 +113,6 @@ void Department::SortStudents() {
     });
 }
 
-// Count the number of students admitted each year
 vector<pair<int, int>> Department::CountStudentsByAdmissionYear() {
     vector<pair<int, int>> admissionYearCounts;
 

@@ -1,5 +1,4 @@
 enum departmentMENU {
-    EXIT = 0,
     ADDSTUDENT = 1,
     ADDPARTTIME,
     REGULAR,
@@ -9,4 +8,5 @@ enum departmentMENU {
     HIGHEST,
     SORT,
     COUNT,
+    EXIT,
 };
